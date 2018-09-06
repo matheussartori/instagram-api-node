@@ -10,7 +10,7 @@ module.exports = () => {
 
     app.use(morgan('common', {
         stream: {
-            write: function(msg) {
+            write: msg => {
                 logger.info(msg);
             }
         }
