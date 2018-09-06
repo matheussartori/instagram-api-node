@@ -6,4 +6,8 @@ module.exports = (app) => {
 
         console.log('Get a list of recent comments on your media object.');
     });
+
+    app.post('/media/:media_id/comments/new', (req, res) => {
+        console.log('Post a new comment.');
+    });
 }

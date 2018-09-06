@@ -8,4 +8,8 @@ module.exports = (app) => {
     app.get('/users/self/media/recent', (req, res) => {
         console.log('Get the most recent media published by the owner of the access_token.');
     });
+
+    app.post('/users/new', (req, res) => {
+        console.log('Create a new user.');
+    });
 }
