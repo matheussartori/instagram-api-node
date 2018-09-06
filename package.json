@@ -1,0 +1,25 @@
+{
+  "name": "instagram-api-node",
+  "version": "1.0.0",
+  "description": "\"# instagram-api-node\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheussartori/instagram-api-node.git"
+  },
+  "author": "matheussartori",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheussartori/instagram-api-node/issues"
+  },
+  "homepage": "https://github.com/matheussartori/instagram-api-node#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "consign": "^0.1.6",
+    "express": "^4.16.3",
+    "express-validator": "^5.3.0"
+  }
+}
