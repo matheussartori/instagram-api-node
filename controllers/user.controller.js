@@ -28,9 +28,10 @@ module.exports = (app) => {
     	);
         
         user.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.send('User created successfully.');
+            if (err) {
+                return next(err);
+            }
+            res.send('User created successfully.');
+        });
     });
 }
