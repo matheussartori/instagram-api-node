@@ -32,7 +32,7 @@ module.exports = () => {
         .then('services')
         .into(app);
 
-    mongoose.connect(mongoDB);
+    mongoose.connect(mongoDB, {useNewUrlParser: true});
     mongoose.Promise = global.Promise;
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
