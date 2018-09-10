@@ -6,7 +6,7 @@ let morgan = require('morgan');
 let logger = require('../services/logger.js');
 
 const mongoose = require('mongoose');
-let dev_db_url = 'mongodb://localhost:27017/instagram-api';
+let dev_db_url = 'mongodb://localhost:27017/instagram_api';
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 let db = mongoose.connection;
 
