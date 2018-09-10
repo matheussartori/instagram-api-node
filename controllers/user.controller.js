@@ -10,7 +10,7 @@ module.exports = (app) => {
     });
 
     app.post('/users/new', (req, res) => {
-        let user = new app.models.userModel(
+        let user = new User(
 	        {
 	        	id: req.body.id,
 	        	username: req.body.username,
