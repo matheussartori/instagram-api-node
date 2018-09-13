@@ -2,6 +2,10 @@ let logger = require('../services/logger.js');
 let User = require('../models/user.model.js');
 
 module.exports = app => {
+    app.get('/register', (req, res) => {
+        res.render('register');
+    });
+
     app.get('/users/self', (req, res) => {
         console.log('Get information about the owner of the access_token.');
     });
