@@ -10,9 +10,9 @@ let UserSchema = new Schema({
     website: String,
     is_business: {type:Boolean, required: true},
     counts: {
-    	media: Number,
-    	follows: Number,
-    	followed_by: Number
+    	media: {type: Number, default: 0},
+    	follows: {type: Number, default: 0},
+    	followed_by: {type: Number, default: 0}
     }
 });
 
