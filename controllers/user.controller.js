@@ -11,7 +11,6 @@ module.exports = app => {
     });
 
     app.post('/users/new', (req, res) => {
-        console.log(req.body);
         let user = new User({
         	id: req.body.id,
         	username: req.body.username,
