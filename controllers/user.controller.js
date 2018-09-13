@@ -11,8 +11,17 @@ module.exports = app => {
     });
 
     app.post('/users/new', (req, res) => {
+        req.assert('username',
+            'Username can\'t be empty.').notEmpty();
+
+        var erros = req.validationErrors();
+        if (erros) {
+            console.log('Erros de validação encontrados.');
+            res.status(400).send(erros);
+            return;
+        }
+
         let user = new User({
-        	id: req.body.id,
         	username: req.body.username,
         	full_name: req.body.fullname,
         	profile_picture: req.body.profile_picture,
