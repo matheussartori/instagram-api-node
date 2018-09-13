@@ -28,7 +28,6 @@ module.exports = () => {
 
     consign()
         .include('controllers')
-        .then('models')
         .then('services')
         .into(app);
 
