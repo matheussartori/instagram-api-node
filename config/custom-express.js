@@ -13,6 +13,10 @@ let db = mongoose.connection;
 module.exports = () => {
     let app = express();
 
+    app.use(express.static('./app/public'));
+    app.set('view engine', 'ejs');
+    app.set('views','./app/views');
+
     app.use(morgan('common', {
         stream: {
             write: msg => {
