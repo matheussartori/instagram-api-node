@@ -31,7 +31,7 @@ module.exports = app => {
                 res.send(err)
                 return;
             }
-            res.send('User created successfully.');
+            res.status(201).send('User created successfully.');
         });
     });
 }

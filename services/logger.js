@@ -10,7 +10,7 @@ module.exports = winston.createLogger({
         new winston.transports.File({
             level: "info",
             filename: "logs/instagram.log",
-            maxsize: 2000,
+            maxsize: 4194304,
             maxFiles: 100
         })
     ]
