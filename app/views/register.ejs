@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sparkagram</title>
+	<title>Sign Up</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
+	<nav>
+		<div class="nav-wrapper">
+		  <a href="#" class="brand-logo center">Instagram</a>
+		</div>
+	</nav>
+
 	<div class="container">
-		
+		<div class="row">
+		    <form class="col s12">
+
+		      	<div class="row">
+		        	<div class="input-field col s12">
+		          		<input id="username" type="text" class="validate" required>
+		          		<label for="username">Nome de usuário*</label>
+		        	</div>
+		      	</div>
+
+		      	<h5>Informações adicionais</h5>
+
+		      	<div class="row">
+		        	<div class="input-field col s12 m6">
+		          		<input id="website" type="text" class="validate">
+		          		<label for="website">Website</label>
+		        	</div>
+
+		        	<div class="input-field col s12 m6">
+		          		<input id="full_name" type="text" class="validate">
+		          		<label for="full_name">Nome completo</label>
+		        	</div>
+
+		        	<div class="input-field col s12">
+		        		<textarea id="bio" rows="3" class="materialize-textarea"></textarea>
+		        		<label for="bio">Biografia</label>
+		        	</div>
+
+		        	<div class="input-field col s12">
+			        	<input id="profile_picture" type="text" class="validate">
+		          		<label for="profile_picture">Link da foto de perfil</label>
+					</div>
+		        </div>
+
+
+	      	    <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+		    		<i class="material-icons right">send</i>
+			    </button>
+
+	      	</div>
+	    </form>
 	</div>
+</div>
 <script src="/js/materialize.min.js"></script>
 </body>
 </html>
