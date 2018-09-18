@@ -31,13 +31,14 @@
                 type: "POST",
                 url: "/login/oauth/send",
                 data: formData,
-                processData: false,
                 success: response => {
                     console.log(response);
                 },
                 error: (err, response) => {
                     console.log(response);
-                }
+                },
+                processData: false,
+                contentType: false,
             });
         });
     </script>
