@@ -33,7 +33,8 @@ module.exports = (app) => {
 
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {
-                res.send(err)
+                res.send(err);
+                console.log('Erro: ' + err)
             } else {
                 res.send(user);
             }
