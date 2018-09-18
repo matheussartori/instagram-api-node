@@ -10,6 +10,6 @@ module.exports = (app) => {
     });
 
     app.post('/login/oauth/send', (req, res) => {
-        res.render('login.send');
+        res.render('oauth');
     });
 }
