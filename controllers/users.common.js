@@ -5,7 +5,11 @@ module.exports = (app) => {
         res.render('register');
     });
 
-    app.get('/login/oauth', (req,res) => {
+    app.get('/login/oauth', (req, res) => {
     	res.render('login');
+    });
+
+    app.post('/login/oauth/send', (req, res) => {
+        res.render('login.send');
     });
 }
