@@ -31,6 +31,7 @@
                 type: "POST",
                 url: "/login/oauth/send",
                 data: formData,
+                processData: false,
                 success: response => {
                     console.log(response);
                 },
@@ -38,6 +39,6 @@
                     console.log(response);
                 }
             });
-        })
+        });
     </script>
 <% include layouts/footer %>
