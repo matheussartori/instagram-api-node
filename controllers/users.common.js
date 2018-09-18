@@ -36,8 +36,11 @@ module.exports = (app) => {
                 res.send(err);
                 console.log('Erro: ' + err)
             } else {
-                res.send(user);
-                console.log(user);
+                if(user) {
+                    res.send(user);
+                } else {
+                    res.status(400);
+                }
             }
         });
 
