@@ -24,7 +24,9 @@
         $('form').on('submit', e => {
             e.preventDefault();
 
-            var formData = new FormData(this);
+            let form = $('form');
+
+            var formData = new FormData(form);
             console.log(formData);
 
             $.ajax({
