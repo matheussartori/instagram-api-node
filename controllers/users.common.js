@@ -37,6 +37,7 @@ module.exports = (app) => {
                 console.log('Erro: ' + err)
             } else {
                 res.send(user);
+                console.log(user);
             }
         });
 
