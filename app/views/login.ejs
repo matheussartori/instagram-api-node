@@ -24,9 +24,8 @@
         $('form').on('submit', e => {
             e.preventDefault();
 
-            let form = $('form').get(0);
+            var formData = $(this).serialize();
 
-            var formData = new FormData(form);
             console.log(formData);
 
             $.ajax({
