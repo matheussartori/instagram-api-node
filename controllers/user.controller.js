@@ -27,8 +27,8 @@ module.exports = app => {
             return;
         }
 
-        let sha256_token = shajs('sha256');
-        let sha256_secret = shajs('sha256');
+        let sha224_token = shajs('sha224');
+        let sha224_secret = shajs('sha224');
 
         let user = new User({
         	username: req.body.username,
@@ -37,8 +37,8 @@ module.exports = app => {
         	bio: req.body.bio,
         	website: req.body.website,
         	is_business: req.body.is_business,
-            access_token: sha256_token.update(new Date() + 'c1760fedf79c430f9b274bacb89c6984').digest('hex'),
-            secret_key: sha256_secret.update(new Date() + 'cedbf496a3f898326c30a1cc76f8fcec').digest('hex'),
+            access_token: sha224_token.update(new Date() + 'c1760fedf79c430f9b274bacb89c6984').digest('hex'),
+            secret_key: sha224_secret.update(new Date() + 'cedbf496a3f898326c30a1cc76f8fcec').digest('hex'),
         	counts: {
         		media: 0,
         		follows: 0,
