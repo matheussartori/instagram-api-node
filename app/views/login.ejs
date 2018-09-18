@@ -31,10 +31,9 @@
                 url: "/login/oauth/send",
                 data: formData,
                 success: response => {
-                    swal(response);
+                    console.log(response)
                 },
                 error: (err, response) => {
-                    swal(err);
                     console.log(response);
                 }
             });
