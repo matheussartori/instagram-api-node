@@ -1,4 +1,4 @@
-let logger = require('../services/logger.js');
+let logger = require('../../services/logger.js');
 
 module.exports = (app) => {
     app.get('/media/:media_id/comments', (req, res) => {

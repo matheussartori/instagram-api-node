@@ -1,4 +1,4 @@
-let logger = require('../services/logger.js');
+let logger = require('../../services/logger.js');
 
 module.exports = (app) => {
     app.get('/locations/:location_id', (req, res) => {
