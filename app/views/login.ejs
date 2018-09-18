@@ -20,4 +20,24 @@
             </form>
         </div>
     </div>
+    <script>
+        $('form').on('submit', e => {
+            e.preventDefault();
+
+            let formData = $(this).serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "/login/oauth/send",
+                data: formData,
+                success: response => {
+                    swal(response);
+                },
+                error: (err, response) => {
+                    swal(err);
+                    console.log(response);
+                }
+            });
+        })
+    </script>
 <% include layouts/footer %>
