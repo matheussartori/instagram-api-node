@@ -34,12 +34,12 @@ module.exports = (app) => {
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {
                 res.send(err)
-                return;
+            } else {
+                res.send(user);
             }
-            res.send(user);
         });
 
-        res.render('oauth');
+        // res.render('oauth');
     });
 
     app.get('/login/create_token', (req, res) => {
