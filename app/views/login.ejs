@@ -25,13 +25,14 @@
             e.preventDefault();
 
             var formData = new FormData(this);
+            console.log(formData);
 
             $.ajax({
                 type: "POST",
                 url: "/login/oauth/send",
                 data: formData,
                 success: response => {
-                    console.log(response)
+                    console.log(response);
                 },
                 error: (err, response) => {
                     console.log(response);
