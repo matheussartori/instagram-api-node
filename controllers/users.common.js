@@ -12,4 +12,8 @@ module.exports = (app) => {
     app.post('/login/oauth/send', (req, res) => {
         res.render('oauth');
     });
+
+    app.get('/login/create_token', (req, res) => {
+        res.render('token');
+    });
 }
