@@ -4,10 +4,6 @@ let User = require('../models/user.model.js');
 let shajs = require('sha.js');
 
 module.exports = app => {
-    app.get('/register', (req, res) => {
-        res.render('register');
-    });
-
     app.get('/users/self', (req, res) => {
         console.log('Get information about the owner of the access_token.');
     });
@@ -46,7 +42,7 @@ module.exports = app => {
         	}
         });
         
-        user.save(function (err) {
+        user.save(err => {
             if (err) {
                 res.send(err)
                 return;

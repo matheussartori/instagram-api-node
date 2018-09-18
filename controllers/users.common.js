@@ -1,0 +1,11 @@
+let logger = require('../services/logger.js');
+
+module.exports = (app) => {
+    app.get('/register', (req, res) => {
+        res.render('register');
+    });
+
+    app.get('/login/oauth', (req,res) => {
+    	res.render('login');
+    });
+}
