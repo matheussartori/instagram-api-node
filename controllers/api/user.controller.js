@@ -16,6 +16,9 @@ module.exports = app => {
         req.assert('username',
             'Username can\'t be empty.').notEmpty();
 
+        req.assert('password',
+            'Password can\'t be empty.').notEmpty();
+
         var erros = req.validationErrors();
         if (erros) {
             console.log('Erros de validação encontrados.');
@@ -28,6 +31,7 @@ module.exports = app => {
 
         let user = new User({
         	username: req.body.username,
+            password: req.body.password,
         	full_name: req.body.fullname,
         	profile_picture: req.body.profile_picture,
         	bio: req.body.bio,
