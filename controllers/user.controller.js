@@ -37,8 +37,8 @@ module.exports = app => {
         	bio: req.body.bio,
         	website: req.body.website,
         	is_business: req.body.is_business,
-            access_token: sha256_token.update(new Date() + 'c1760fedf79c430f9b274bacb89c6984').toString('hex'),
-            secret_key: sha256_secret.update(new Date() + 'cedbf496a3f898326c30a1cc76f8fcec').toString('hex'),
+            access_token: sha256_token.update(new Date() + 'c1760fedf79c430f9b274bacb89c6984').digest('hex'),
+            secret_key: sha256_secret.update(new Date() + 'cedbf496a3f898326c30a1cc76f8fcec').digest('hex'),
         	counts: {
         		media: 0,
         		follows: 0,
