@@ -8,6 +8,8 @@ let UserSchema = new Schema({
     bio: String,
     website: String,
     is_business: {type:Boolean, default: false},
+    access_token: {type: String, required: true},
+    secret_key: {type: String, required: true},
     counts: {
     	media: {type: Number, default: 0},
     	follows: {type: Number, default: 0},
