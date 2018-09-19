@@ -16,7 +16,7 @@ module.exports = (app) => {
         console.log(req.body);
         var parser = JSON.parse(req.body);
             
-        let sha224 = shajs('sha224');
+        /*let sha224 = shajs('sha224');
 
         var username = parser.username;
         var password = sha224.update(parser.password).digest('hex');
@@ -32,7 +32,7 @@ module.exports = (app) => {
                     res.status(400);
                 }
             }
-        });
+        });*/
 
         // res.render('oauth');
     });
