@@ -26,14 +26,13 @@ module.exports = (app) => {
                 console.log('Erro: ' + err)
             } else {
                 if(user) {
-                    res.status(200).send(user);
+                    res.render('oauth', {data: user});
                 } else {
                     res.status(204).send({error: 'User not found'});
                 }
             }
         });
 
-        // res.render('oauth');
     });
 
     app.get('/login/create_token', (req, res) => {

@@ -38,9 +38,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: response => {
-                    if (response) {
-                        swal('logou!');
-                    } else {
+                    if (!response) {
                         swal({
                             type: 'warning',
                             title: 'Credenciais inválidas',
