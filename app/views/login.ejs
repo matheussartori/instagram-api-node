@@ -34,22 +34,22 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: response => {
-                    swal('logou!');
-                },
-                error: (err, response) => {
-                    if(response.error = 'User not found') {
+                    if(response.access_token) {
+                        swal('logou!');
+                    } else {
                         swal({
                             type: 'warning',
                             title: 'Credenciais inválidas',
                             text: 'Verifique os seus dados e tente novamente.'
-                        })
-                    } else {
-                        swal({
-                            type: 'error',
-                            title: 'Oops...',
-                            text: 'Não conseguimos obter uma resposta do servidor.'
                         });
                     }
+                },
+                error: (err, response) => {
+                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não conseguimos obter uma resposta do servidor.'
+                    });
                 }
             });
         });
