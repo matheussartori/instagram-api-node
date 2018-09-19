@@ -34,7 +34,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: response => {
-                    if (response.hasOwnProperty('access_token')) {
+                    if (response) {
                         swal('logou!');
                     } else {
                         swal({
