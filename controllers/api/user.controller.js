@@ -21,10 +21,15 @@ module.exports = app => {
 
         var erros = req.validationErrors();
         if (erros) {
-            console.log('Erros de validação encontrados.');
             res.status(400).send(erros);
             return;
         }
+
+        User.findOne({ username: req.body.username }, function (err, user) {
+            if(user) {
+                res.status(400).send({status: "User exists"});
+            }
+        });
 
         let sha224 = shajs('sha224');
 
