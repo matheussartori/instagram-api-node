@@ -34,7 +34,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: response => {
-                    if (typeof response.access_token !== 'undefined') {
+                    if (response.hasOwnProperty('access_token')) {
                         swal('logou!');
                     } else {
                         swal({
