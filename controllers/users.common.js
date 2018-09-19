@@ -13,23 +13,12 @@ module.exports = (app) => {
     });
 
     app.post('/login/oauth/send', (req, res) => {
-        req.assert('username',
-            'Username can\'t be empty.').notEmpty();
-
-        req.assert('password',
-            'Password can\'t be empty.').notEmpty();
-
-        var erros = req.validationErrors();
-        if (erros) {
-            console.log('Erros de validação encontrados.');
-            res.status(400).send(erros);
-            return;
-        }
+        var parser = JSON.stringify(req.body);
             
         let sha224 = shajs('sha224');
 
-        var username = req.body.username;
-        var password = sha224.update(req.body.password).digest('hex');
+        var username = parser.username;
+        var password = sha224.update(parser.password).digest('hex');
 
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {

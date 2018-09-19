@@ -26,21 +26,17 @@
 
             var formData = $('form').serialize();
 
-            console.log(formData);
-
             $.ajax({
                 type: "POST",
                 url: "/login/oauth/send",
+                contentType: 'application/json',
                 data: formData,
                 success: response => {
                     console.log(response);
                 },
                 error: (err, response) => {
                     console.log(response);
-                },
-                processData: false,
-                contentType: false,
-                cache: false
+                }
             });
         });
     </script>
