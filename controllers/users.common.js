@@ -14,12 +14,11 @@ module.exports = (app) => {
 
     app.post('/login/oauth/send', (req, res) => {
         console.log(req.body);
-        var parser = JSON.parse(req.body);
             
-        /*let sha224 = shajs('sha224');
+        let sha224 = shajs('sha224');
 
-        var username = parser.username;
-        var password = sha224.update(parser.password).digest('hex');
+        var username = req.body.username;
+        var password = sha224.update(req.body.password).digest('hex');
 
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {
@@ -32,7 +31,7 @@ module.exports = (app) => {
                     res.status(400);
                 }
             }
-        });*/
+        });
 
         // res.render('oauth');
     });
