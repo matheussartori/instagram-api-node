@@ -24,7 +24,7 @@
         $('form').on('submit', e => {
             e.preventDefault();
 
-            var formData = {};
+            let formData = {};
             formData.username = $('#username').val();
             formData.password = $('#password').val();
 
@@ -34,10 +34,22 @@
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
                 success: response => {
-                    console.log(response);
+                    if(response) {
+
+                    } else {
+                        swal({
+                            type: 'warning',
+                            title: 'Credenciais inválidas',
+                            text: 'Verifique os seus dados e tente novamente.'
+                        })
+                    }
                 },
                 error: (err, response) => {
-                    console.log(response);
+                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Não conseguimos obter uma resposta do servidor.'
+                    });
                 }
             });
         });
