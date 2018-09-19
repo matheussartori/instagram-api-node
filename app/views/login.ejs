@@ -24,13 +24,13 @@
         $('form').on('submit', e => {
             e.preventDefault();
 
-            var formData = $('form').serialize();
+            var data = $('form').serialize();
 
             $.ajax({
                 type: "POST",
                 url: "/login/oauth/send",
                 contentType: 'application/json',
-                data: formData,
+                data: JSON.stringify(data),
                 success: response => {
                     console.log(response);
                 },
