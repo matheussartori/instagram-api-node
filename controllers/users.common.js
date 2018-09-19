@@ -13,6 +13,7 @@ module.exports = (app) => {
     });
 
     app.post('/login/oauth/send', (req, res) => {
+        console.log(req.body);
         var parser = JSON.parse(req.body);
             
         let sha224 = shajs('sha224');
