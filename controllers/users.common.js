@@ -28,7 +28,7 @@ module.exports = (app) => {
                 if(user) {
                     res.status(200).send(user);
                 } else {
-                    res.status(400).send({error: 'User not found'});
+                    res.status(204).send({error: 'User not found'});
                 }
             }
         });
