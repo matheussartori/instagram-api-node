@@ -29,6 +29,7 @@ module.exports = app => {
             if(user) {
                 res.status(400).send({status: "User exists"});
             }
+            return;
         });
 
         let sha224 = shajs('sha224');
@@ -43,11 +44,6 @@ module.exports = app => {
         	is_business: req.body.is_business,
             access_token: sha224.update(new Date() + 'c1760fedf79c430f9b274bacb89c6984').digest('hex'),
             secret_key: sha224.update(new Date() + 'cedbf496a3f898326c30a1cc76f8fcec').digest('hex'),
-        	counts: {
-        		media: 0,
-        		follows: 0,
-        		followed_by: 0
-        	}
         });
         
         user.save(err => {

@@ -11,6 +11,7 @@ let UserSchema = new Schema({
     is_business: {type:Boolean, default: false},
     access_token: {type: String, required: true},
     secret_key: {type: String, required: true},
+    created_at: {type: Date, default: Date.now},
     counts: {
     	media: {type: Number, default: 0},
     	follows: {type: Number, default: 0},
