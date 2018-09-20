@@ -25,12 +25,8 @@
         </div>
     </div>
     <script>
-        let redirect = false;
-        $('form').on('submit', e => {
-            if(!redirect)
-                e.preventDefault();
-            else
-                return;
+        /* $('form').on('submit', e => {
+            e.preventDefault();
 
             let formData = {};
             formData.username = $('#username').val();
@@ -48,9 +44,6 @@
                             title: 'Credenciais inválidas',
                             text: 'Verifique os seus dados e tente novamente.'
                         });
-                    } else {
-                        redirect = true;
-                        $('form').submit();
                     }
                 },
                 error: (err, response) => {
@@ -61,6 +54,6 @@
                     });
                 }
             });
-        });
+        }); */
     </script>
 <% include layouts/footer %>
