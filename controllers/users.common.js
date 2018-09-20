@@ -20,6 +20,9 @@ module.exports = (app) => {
         var username = req.body.username;
         var password = sha224.update(req.body.password).digest('hex');
 
+        console.log(username);
+        console.log(password);
+
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {
                 res.send(err);
