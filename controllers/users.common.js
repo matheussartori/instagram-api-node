@@ -25,7 +25,7 @@ module.exports = (app) => {
                 res.status(400).send(err);
             } else {
                 if(user) {
-                    res.redirect(callback_url + '?access_token=' + user.access_token + '&secret_key=' + user.secret_key);
+                    res.redirect(callback_url + '?username=' + user.username + '&id_user=' + user._id +  '&access_token=' + user.access_token + '&secret_key=' + user.secret_key);
                 } else {
                     res.status(204).send({error: 'User not found'});
                 }
