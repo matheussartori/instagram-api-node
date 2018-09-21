@@ -3,6 +3,8 @@ let User = require('../models/user.model.js');
 
 let shajs = require('sha.js');
 
+const callback_url = 'https://sparksocialhub.com/instagram/callback';
+
 module.exports = (app) => {
     app.get('/register', (req, res) => {
         res.render('register');
@@ -13,27 +15,17 @@ module.exports = (app) => {
     });
 
     app.post('/login/oauth/send', (req, res) => {
-        console.log(req.body);
-            
         let sha224 = shajs('sha224');
 
         var username = req.body.username;
         var password = sha224.update(req.body.password).digest('hex');
 
-        console.log(username);
-        console.log(password);
-
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {
-                res.send(err);
-                console.log('Erro: ' + err)
+                res.status(400).send(err);
             } else {
                 if(user) {
-                    let wrapper = {
-                        access_token: user.access_token,
-                        secret_key: user.secret_key
-                    };
-                    res.render('oauth', {data: wrapper});
+                    res.redirect(callback_url + '?access_token=' + user.access_token + '&secret_key=' + user.secret_key);
                 } else {
                     res.status(204).send({error: 'User not found'});
                 }
