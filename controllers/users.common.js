@@ -29,7 +29,11 @@ module.exports = (app) => {
                 console.log('Erro: ' + err)
             } else {
                 if(user) {
-                    res.render('oauth', {data: user});
+                    let wrapper = {
+                        access_token: user.access_token,
+                        secret_key: user.secret_key
+                    };
+                    res.render('oauth', {data: wrapper});
                 } else {
                     res.status(204).send({error: 'User not found'});
                 }
