@@ -15,10 +15,10 @@ module.exports = (app) => {
     });
 
     app.post('/login/oauth/send', (req, res) => {
-        let sha224 = shajs('sha224');
+        let sha1 = shajs('sha1');
 
         var username = req.body.username;
-        var password = sha224.update(req.body.password).digest('hex');
+        var password = sha1.update(req.body.password).digest('hex');
 
         User.findOne({ username: username, password: password }, function (err, user) {
             if (err) {
