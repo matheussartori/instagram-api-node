@@ -13,7 +13,7 @@ module.exports = app => {
                 res.status(400).send(err);
             } else {
                 if(user) {
-                    Media.find({ id_user: user._id }, (err, media) => {
+                    Media.find({ user: user._id }, (err, media) => {
                         res.status(200).send(media);
                     });
                 } else {
