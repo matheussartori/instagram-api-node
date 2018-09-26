@@ -4,8 +4,16 @@ let User = require('../../models/user.model.js');
 let Media = require('../../models/media.model.js');
 
 module.exports = app => {
-    app.get('/media/search', (req, res) => {
-        console.log('Search for recent media in a given area.');
+    app.get('/media/search/:id', (req, res) => {
+        let id = req.params.id;
+
+        Media.findOne({ _id: id }, (err, media) => {
+            if(err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send(media);
+            }
+        });
     });
 
     app.post('/media/new', (req, res) => {
@@ -16,7 +24,7 @@ module.exports = app => {
         let access_token = req.body.access_token;
         let secret_key = req.body.secret_key;
 
-        User.findOne({ access_token: access_token, secret_key: secret_key }, function (err, user) {
+        User.findOne({ access_token: access_token, secret_key: secret_key }, (err, user) => {
             if (err) {
                 res.status(400).send(err);
             } else {
@@ -33,10 +41,10 @@ module.exports = app => {
 			                res.send(err)
 			                return;
 			            }
-			            res.status(201).send('User created successfully.');
+			            res.status(201).send('Media posted successfully.');
 			        });
                 } else {
-                    res.status(204).send({error: 'User not found'});
+                    res.status(204).send({error: 'Cannot post with this parameters.'});
                 }
             }
         });
