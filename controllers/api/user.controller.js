@@ -17,7 +17,7 @@ module.exports = app => {
                         res.status(200).send(media);
                     });
                 } else {
-                    res.status(204).send({error: 'User not found.'});
+                    res.status(400).send({error: 'User not found.'});
                 }
             }
         });
