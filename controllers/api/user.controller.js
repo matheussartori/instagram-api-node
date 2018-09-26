@@ -6,7 +6,7 @@ let Media = require('../../models/media.model.js');
 
 module.exports = app => {
     app.get('/users/timeline/:id', (req, res) => {
-        let id = req.body.id;
+        let id = req.params.id;
 
         User.findOne({ _id: id }, (err, user) => {
             if (err) {
