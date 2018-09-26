@@ -1,15 +1,26 @@
 let logger = require('../../services/logger.js');
-let User = require('../../models/user.model.js');
-
 let shajs = require('sha.js');
 
-module.exports = app => {
-    app.get('/users/self', (req, res) => {
-        console.log('Get information about the owner of the access_token.');
-    });
+let User = require('../../models/user.model.js');
+let Media = require('../../models/media.model.js');
 
-    app.get('/users/self/media/recent', (req, res) => {
-        console.log('Get the most recent media published by the owner of the access_token.');
+module.exports = app => {
+    app.get('/users/timeline/:id', (req, res) => {
+        let id = req.body.id;
+
+        User.findOne({ access_token: access_token, secret_key: secret_key }, (err, user) => {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                if(user) {
+                    Media.find({ id_user: user._id }, (err, media) => {
+                        res.status(200).send(media);
+                    });
+                } else {
+                    res.status(204).send({error: 'User not found.'});
+                }
+            }
+        });
     });
 
     app.post('/users/new', (req, res) => {
@@ -19,13 +30,13 @@ module.exports = app => {
         req.assert('password',
             'Password can\'t be empty.').notEmpty();
 
-        var erros = req.validationErrors();
+        let erros = req.validationErrors();
         if (erros) {
             res.status(400).send(erros);
             return;
         }
 
-        User.findOne({ username: req.body.username }, function (err, user) {
+        User.findOne({ username: req.body.username }, (err, user) => {
             if(user) {
                 res.status(400).send({status: "User exists"});
             }
