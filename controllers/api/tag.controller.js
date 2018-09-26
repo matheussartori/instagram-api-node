@@ -1,19 +1,21 @@
 let logger = require('../../services/logger.js');
 
+let Media = require('../../models/media.model.js');
+
 module.exports = app => {
-    app.get('/tags/:tag_name', (req, res) => {
-        let tag_name = req.params.tag_name;
+    app.get('/tags/search/:tag', (req, res) => {
+        let tag = req.params.tag;
 
-        console.log('Get information about a tag object.');
-    });
-
-    app.get('/tags/:tag_name/media/recent', (req, res) => {
-        let tag_name = req.params.tag_name;
-
-        console.log('Get a list of recently tagged media.');
-    });
-
-    app.get('/tags/search', (req, res) => {
-        console.log('Search for tags by name.');
+        Media.find({ tags: tag }, (err, media) => {
+            if(err) {
+                res.status(400).send(err);
+            } else {
+                if(media) {
+                    res.status(200).send(media);
+                } else {
+                    res.status(400).send({error: "Tag not found."});
+                }
+            }
+        });
     });
 }
