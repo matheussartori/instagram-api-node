@@ -12,6 +12,8 @@ module.exports = app => {
             } else {
                 if(media) {
                     res.status(200).send(media);
+                } else if(media.length == 0) {
+                    res.status(400).send({error: "Tag not found."});
                 } else {
                     res.status(400).send({error: "Tag not found."});
                 }
