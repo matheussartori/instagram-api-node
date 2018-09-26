@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let MediaSchema = new Schema({
-    comments: {
-    	count: {type: Number, default: 0}
-    },
-	created_at: {type: Date, default: Date.now},
-	title: {type: String, default: '' },
-    likes: {
-    	count: {type: Number, default: 0}
-    },
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
-    image_url: {type: String, required: true},
+    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    title: {type: String, default: '' },
     type: {type: String, default: 'image'},
+    media_url: {type: String, required: true},
+    comments: {
+        count: {type: Number, default: 0}
+    },
+    likes: {
+        count: {type: Number, default: 0}
+    },
+    created_at: {type: Date, default: Date.now},
     tags: []
 });
 

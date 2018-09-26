@@ -23,7 +23,7 @@ module.exports = app => {
     app.post('/media/new', (req, res) => {
 
         let title = req.body.title;
-        let image_url = req.body.image_url;
+        let media_url = req.body.media_url;
         let tags = req.body.tags;
         let access_token = req.body.access_token;
         let secret_key = req.body.secret_key;
@@ -36,7 +36,7 @@ module.exports = app => {
                 	let media = new Media({
 			        	title: title,
 			            user: user._id,
-			        	image_url: image_url,
+			        	media_url: media_url,
 			        	tags: tags
 			        });
 			        
