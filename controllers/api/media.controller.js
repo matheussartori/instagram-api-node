@@ -11,7 +11,11 @@ module.exports = app => {
             if(err) {
                 res.status(400).send(err);
             } else {
-                res.status(200).send(media);
+                if(media) {
+                    res.status(200).send(media);
+                } else {
+                    res.status(400).send({error: "Media not found."});
+                }
             }
         });
     });
