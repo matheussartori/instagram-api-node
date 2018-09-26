@@ -1,6 +1,6 @@
 let logger = require('../../services/logger.js');
 
-module.exports = (app) => {
+module.exports = app => {
     app.get('/tags/:tag_name', (req, res) => {
         let tag_name = req.params.tag_name;
 

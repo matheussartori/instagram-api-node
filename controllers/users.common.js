@@ -5,7 +5,7 @@ let shajs = require('sha.js');
 
 const callback_url = 'https://sparksocialhub.com/instagram/callback';
 
-module.exports = (app) => {
+module.exports = app => {
     app.get('/register', (req, res) => {
         res.render('register');
     });
