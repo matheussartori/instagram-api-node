@@ -8,7 +8,7 @@ module.exports = app => {
     app.get('/users/timeline/:id', (req, res) => {
         let id = req.body.id;
 
-        User.findOne({ access_token: access_token, secret_key: secret_key }, (err, user) => {
+        User.findOne({ _id: id }, (err, user) => {
             if (err) {
                 res.status(400).send(err);
             } else {
