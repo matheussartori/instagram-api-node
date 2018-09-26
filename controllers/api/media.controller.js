@@ -1,5 +1,8 @@
 let logger = require('../../services/logger.js');
 
+let User = require('../../models/user.model.js');
+let Media = require('../../models/media.model.js');
+
 module.exports = app => {
     app.get('/media/search', (req, res) => {
         console.log('Search for recent media in a given area.');
