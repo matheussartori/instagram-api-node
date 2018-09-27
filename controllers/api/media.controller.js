@@ -14,7 +14,7 @@ module.exports = app => {
                 res.status(400).send(err);
             } else {
                 if(media) {
-                    let timeline = media.toObject();
+                    var timeline = media.toObject();
 
                     Like.countDocuments({ media: media._id }, (err, likes) => {
 
