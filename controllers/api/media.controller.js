@@ -14,11 +14,14 @@ module.exports = app => {
             } else {
                 if(media) {
                     Like.count({ media: media._id }, (err, likes) => {
-                        media.likes = {
+                        var timeline = media.toObject();
+                        
+                        timeline.likes = {
                             count: likes
                         };
-                    });
 
+                        res.status(200).send(timeline);
+                    });
                     res.status(200).send(media);
                 } else {
                     res.status(400).send({error: "Media not found."});
