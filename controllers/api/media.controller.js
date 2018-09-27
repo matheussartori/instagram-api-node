@@ -14,7 +14,7 @@ module.exports = app => {
                 res.status(400).send(err);
             } else {
                 if(media) {
-                    var timeline = media.toObject();
+                    let timeline = media.toObject();
 
                     Like.countDocuments({ media: media._id }, (err, likes) => {
 
@@ -24,13 +24,13 @@ module.exports = app => {
 
                     });
 
-                    Comment.countDocuments({ media: media._id }, (err, comments) => {
+                    /*Comment.countDocuments({ media: media._id }, (err, comments) => {
 
                         timeline.comments = {
                             count: comments
                         };
 
-                    });
+                    });*/
 
                     res.status(200).send(timeline);
                 } else {
