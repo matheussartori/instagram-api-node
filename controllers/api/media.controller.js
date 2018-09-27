@@ -15,6 +15,7 @@ module.exports = app => {
             } else {
                 if(media) {
                     let timeline = media.toObject();
+                    
                     Like.countDocuments({ media: media._id }, (err, likes) => {
 
                         timeline.likes = {
