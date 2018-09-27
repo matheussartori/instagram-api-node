@@ -3,8 +3,6 @@ let shajs = require('sha.js');
 
 let User = require('../../models/user.model.js');
 let Media = require('../../models/media.model.js');
-let Like = require('../../models/like.model.js');
-let Comment = require('../../models/comment.model.js');
 
 module.exports = app => {
     app.get('/users/timeline/:id', (req, res) => {
@@ -16,23 +14,7 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
-                        let timeline = media.toObject();
-                    
-                        Like.countDocuments({ media: media._id }, (err, likes) => {
-
-                            timeline.likes = {
-                                count: likes
-                            };
-
-                            Comment.countDocuments({ media: media._id }, (err, comments) => {
-
-                                timeline.comments = {
-                                    count: comments
-                                };
-
-                                res.status(200).send(timeline);
-                            });
-                        });
+                        res.status(200).send(media);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
