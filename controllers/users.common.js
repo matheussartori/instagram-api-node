@@ -3,7 +3,7 @@ let User = require('../models/user.model.js');
 
 let shajs = require('sha.js');
 
-const callback_url = 'https://sparksocialhub.com/instagram/callback';
+const callback_url = 'https://sparksocialhub.com/sparkgram/callback';
 
 module.exports = app => {
     app.get('/register', (req, res) => {
