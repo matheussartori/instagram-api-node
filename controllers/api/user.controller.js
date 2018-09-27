@@ -3,6 +3,8 @@ let shajs = require('sha.js');
 
 let User = require('../../models/user.model.js');
 let Media = require('../../models/media.model.js');
+let Like = require('../../models/like.model.js');
+let Comment = require('../../models/comment.model.js');
 
 module.exports = app => {
     app.get('/users/timeline/:id', (req, res) => {
