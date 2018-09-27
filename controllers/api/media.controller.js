@@ -3,7 +3,6 @@ let logger = require('../../services/logger.js');
 let User = require('../../models/user.model.js');
 let Media = require('../../models/media.model.js');
 let Like = require('../../models/like.model.js');
-let Comment = require('../../models/comment.model.js');
 
 module.exports = app => {
     app.get('/media/search/:id', (req, res) => {
@@ -15,7 +14,7 @@ module.exports = app => {
             } else {
                 if(media) {
                     let timeline = media.toObject();
-
+                    
                     Like.countDocuments({ media: media._id }, (err, likes) => {
 
                         timeline.likes = {
@@ -23,14 +22,6 @@ module.exports = app => {
                         };
 
                     });
-
-                    /*Comment.countDocuments({ media: media._id }, (err, comments) => {
-
-                        timeline.comments = {
-                            count: comments
-                        };
-
-                    });*/
 
                     res.status(200).send(timeline);
                 } else {
