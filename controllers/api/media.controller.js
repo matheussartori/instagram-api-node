@@ -2,6 +2,7 @@ let logger = require('../../services/logger.js');
 
 let User = require('../../models/user.model.js');
 let Media = require('../../models/media.model.js');
+let Like = require('../../models/like.model.js');
 
 module.exports = app => {
     app.get('/media/search/:id', (req, res) => {
@@ -12,6 +13,12 @@ module.exports = app => {
                 res.status(400).send(err);
             } else {
                 if(media) {
+                    Like.count({ media: media._id }, (err, likes) => {
+                        media.likes = {
+                            count: likes
+                        };
+                    });
+
                     res.status(200).send(media);
                 } else {
                     res.status(400).send({error: "Media not found."});
