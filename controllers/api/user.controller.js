@@ -21,15 +21,17 @@ module.exports = app => {
 
                             Like.countDocuments({ media: media[i]._id }, (err, likes) => {
 
-                                media[i].likes = {
+                                /*media[i].likes = {
                                     count: likes
-                                };
+                                };*/
+
+                                console.log(likes);
 
                                 Comment.countDocuments({ media: media[i]._id }, (err, comments) => {
 
-                                    media[i].comments = {
+                                    /*media[i].comments = {
                                         count: comments
-                                    };
+                                    };*/
 
                                 });
                             });
