@@ -17,10 +17,10 @@ module.exports = app => {
 
                         for(let i = 0; i < media; i++) {
                             let timeline = media.toObject();
-                            console.log(timeline[i]);
+                            console.log(timeline);
                         }
 
-                        res.status(200).send(timeline);
+                        // res.status(200).send(timeline);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
