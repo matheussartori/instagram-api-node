@@ -19,8 +19,23 @@ module.exports = app => {
                     Media.find({ user: user._id }).lean().exec((err, media) => {
                         for (var i = 0; i < media.length; i++) {
 
-                            console.log('iteracao ' + i);
-                            console.log(media[i]._id);
+                            var id_media = media[i]._id;
+                            console.log(id_media);
+
+                            Like.countDocuments({ media: media[i]._id }, (err, likes) => {
+
+                                media[i] = {
+                                    count: likes
+                                };
+
+                                Comment.countDocuments({ media: media[i]._id }, (err, comments) => {
+
+                                    media[i].comments = {
+                                        count: comments
+                                    };
+
+                                });
+                            });
                         }
 
                         res.status(200).send(media);
