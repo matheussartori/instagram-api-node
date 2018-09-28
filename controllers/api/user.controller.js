@@ -14,9 +14,9 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
-                        let timeline = media.toObject();
 
-                        for(let i = 0; i < timeline; i++) {
+                        for(let i = 0; i < media; i++) {
+                            let timeline = media.toObject();
                             console.log(timeline[i]);
                         }
 
