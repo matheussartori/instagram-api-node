@@ -17,7 +17,7 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }).lean().exec((err, media) => {
-                        let res = [];
+                        let response = [];
                         for (var i = 0; i < media.length; i++) {
 
                             let timeline = media[i];
@@ -34,7 +34,7 @@ module.exports = app => {
                                         count: comments
                                     };
 
-                                    res[0] = timeline;
+                                    response[0] = timeline;
 
                                 });
                             });
