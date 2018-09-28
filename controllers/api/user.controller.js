@@ -21,17 +21,15 @@ module.exports = app => {
 
                             Like.countDocuments({ media: media[i]._id }, (err, likes) => {
 
-                                timeline.likes = {
+                                media[i].likes = {
                                     count: likes
                                 };
 
                                 Comment.countDocuments({ media: media[i]._id }, (err, comments) => {
 
-                                    timeline.comments = {
+                                    media[i].comments = {
                                         count: comments
                                     };
-
-
 
                                 });
                             });
