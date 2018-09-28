@@ -17,30 +17,27 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }).lean().exec((err, media) => {
-                        let response = [];
                         for (var i = 0; i < media.length; i++) {
 
-                            let timeline = media[i];
-                            
-                            Like.countDocuments({ media: timeline._id }, (err, likes) => {
+                            Like.countDocuments({ media: media[i]._id }, (err, likes) => {
 
                                 timeline.likes = {
                                     count: likes
                                 };
 
-                                Comment.countDocuments({ media: timeline._id }, (err, comments) => {
+                                Comment.countDocuments({ media: media[i]._id }, (err, comments) => {
 
                                     timeline.comments = {
                                         count: comments
                                     };
 
-                                    response[0] = timeline;
+
 
                                 });
                             });
                         }
 
-                        res.status(200).send(response);
+                        res.status(200).send(media);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
