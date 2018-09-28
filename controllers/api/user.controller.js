@@ -13,7 +13,7 @@ module.exports = app => {
                 res.status(400).send(err);
             } else {
                 if(user) {
-                    Media.find({ user: user._id }, (err, media) => {
+                    Media.find({ user: user._id }).lean().exec((err, media) => {
 
                         for(var i = 0; i > media.length; i++) {
                             console.log(media);
