@@ -40,7 +40,7 @@ module.exports = app => {
                             });
                         }
 
-                        res.status(200).send(timeline);
+                        res.status(200).send(response);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
