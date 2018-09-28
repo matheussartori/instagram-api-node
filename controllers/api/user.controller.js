@@ -20,7 +20,7 @@ module.exports = app => {
                         for (var i = 0; i < media.length; i++) {
 
                             console.log('iteracao ' + i);
-                            console.log(media[i]);
+                            console.log(media[i]._id);
                         }
 
                         res.status(200).send(media);
