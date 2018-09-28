@@ -20,15 +20,15 @@ module.exports = app => {
                         for (var i = 0; i < media.length; i++) {
 
                             var id_media = media[i]._id;
-                            console.log(id_media);
 
-                            Like.countDocuments({ media: media[i]._id }, (err, likes) => {
+
+                            Like.countDocuments({ media: id_media }, (err, likes) => {
 
                                 media[i] = {
                                     count: likes
                                 };
 
-                                Comment.countDocuments({ media: media[i]._id }, (err, comments) => {
+                                Comment.countDocuments({ media: id_media }, (err, comments) => {
 
                                     media[i].comments = {
                                         count: comments
