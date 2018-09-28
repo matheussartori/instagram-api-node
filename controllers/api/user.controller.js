@@ -14,13 +14,7 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
-
-                        for(let i = 0; i < media; i++) {
-                            let timeline = media.toObject();
-                            console.log(timeline);
-                        }
-
-                        // res.status(200).send(timeline);
+                        res.status(200).send(media);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
