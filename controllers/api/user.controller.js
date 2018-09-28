@@ -17,6 +17,7 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }).lean().exec((err, media) => {
+                        let res = [];
                         for (var i = 0; i < media.length; i++) {
 
                             let timeline = media[i];
@@ -33,11 +34,13 @@ module.exports = app => {
                                         count: comments
                                     };
 
+                                    res[0] = timeline;
+
                                 });
                             });
                         }
 
-                        res.status(200).send(media);
+                        res.status(200).send(timeline);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
