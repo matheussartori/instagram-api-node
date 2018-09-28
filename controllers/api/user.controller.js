@@ -33,7 +33,6 @@ module.exports = app => {
                                         count: comments
                                     };
 
-                                    res.status(200).send(timeline);
                                 });
                             });
                         }
