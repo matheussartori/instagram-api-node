@@ -15,8 +15,9 @@ module.exports = app => {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
 
-                        console.log(media);
-                        console.log(media.length);
+                        for(var i = 0; i > media.length; i++) {
+                            console.log(media);
+                        }
 
                         res.status(200).send(media);
                     });
