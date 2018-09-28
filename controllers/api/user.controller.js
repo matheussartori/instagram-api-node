@@ -17,8 +17,8 @@ module.exports = app => {
 
                         for (var i = 0; i < media.length; i++){
                             let timeline = media[i];
-                            let iterator = timeline.toObject();
-                            console.log(iterator);
+                            timeline.comments = 1;
+                            console.log(timeline);
                         }
 
                         res.status(200).send(media);
