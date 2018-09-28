@@ -20,7 +20,7 @@ module.exports = app => {
                         for (var i = 0; i < media.length; i++) {
 
                             var id_media = media[i]._id;
-                            var iterator = media[i];
+                            var iterator = media[i].toObject();
                             var result = [];
 
                             Like.countDocuments({ media: id_media }, (err, likes) => {
