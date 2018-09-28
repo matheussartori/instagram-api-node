@@ -16,32 +16,8 @@ module.exports = app => {
                 res.status(400).send(err);
             } else {
                 if(user) {
-                    Media.find({ user: user._id }).lean().exec((err, media) => {
-                        for (var i = 0; i < media.length; i++) {
-
-                            var id_media = media[i]._id;
-                            var iterator = media[i].toObject();
-                            var result = [];
-
-                            Like.countDocuments({ media: id_media }, (err, likes) => {
-
-                                iterator.likes = {
-                                    count: likes
-                                };
-
-                                Comment.countDocuments({ media: id_media }, (err, comments) => {
-
-                                    iterator.comments = {
-                                        count: comments
-                                    };
-
-                                    result.push(iterator);
-
-                                });
-                            });
-                        }
-
-                        res.status(200).send(result);
+                    Media.find({ user: user._id }, (err, media) => {
+                        res.status(200).send(media);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
