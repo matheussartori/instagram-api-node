@@ -21,6 +21,7 @@ module.exports = app => {
 
                             var id_media = media[i]._id;
                             var iterator = media[i];
+                            var result = [];
 
                             Like.countDocuments({ media: id_media }, (err, likes) => {
 
@@ -34,11 +35,13 @@ module.exports = app => {
                                         count: comments
                                     };
 
+                                    result.push(iterator);
+
                                 });
                             });
                         }
 
-                        res.status(200).send(media);
+                        res.status(200).send(result);
                     });
                 } else {
                     res.status(400).send({error: 'User not found.'});
