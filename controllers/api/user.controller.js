@@ -21,10 +21,9 @@ module.exports = app => {
 
                             var id_media = media[i]._id;
 
-
                             Like.countDocuments({ media: id_media }, (err, likes) => {
 
-                                media[i] = {
+                                media[i].likes = {
                                     count: likes
                                 };
 
