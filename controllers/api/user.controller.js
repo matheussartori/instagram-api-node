@@ -14,10 +14,10 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }).lean().exec((err, media) => {
-                        
 
-                        for (var i = 0;i<media.length;i++){
-                            let timeline = media[i].toObject();
+                        for (var i = 0; i < media.length; i++){
+                            let timeline = media[i];
+                            console.log(timeline);
                         }
 
                         res.status(200).send(media);
