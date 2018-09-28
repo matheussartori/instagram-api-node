@@ -14,6 +14,9 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
+                        media.forEach(value, key, array) {
+                            console.log(value);
+                        }
                         res.status(200).send(media);
                     });
                 } else {
