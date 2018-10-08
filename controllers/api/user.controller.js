@@ -23,7 +23,7 @@ module.exports = app => {
                             media.forEach(function(single) {
                                 let it = single.toObject();
                                 it.teste = 'test'
-                                timeline.push(single);
+                                timeline.push(it);
                             });
 
                             res.status(200).send(timeline);
