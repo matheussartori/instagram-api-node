@@ -21,7 +21,7 @@ module.exports = app => {
                         if(media) {
 
                             media.forEach(function(single) {
-                                let it = single;
+                                let it = single.toObject();
                                 it.teste = 'test'
                                 timeline.push(single);
                             });
