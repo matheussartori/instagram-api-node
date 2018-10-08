@@ -20,7 +20,7 @@ module.exports = app => {
                         if(media) {
 
                             media.forEach(function(single) {
-                                console.log(single);
+                                media.teste = 'test';
                             });
 
                             res.status(200).send(media);
