@@ -23,19 +23,20 @@ module.exports = app => {
                             media.forEach(function(single) {
                                 let it = single.toObject();
 
-                                Like.countDocuments({ media: it._id }, (err, likes) => {
+                                Like.countDocuments({ media: single._id }, (err, likes) => {
                                     it.likes = {
                                         count: likes
                                     };
 
-                                     Comment.countDocuments({ media: it._id }, (err, comments) => {
+                                     Comment.countDocuments({ media: single._id }, (err, comments) => {
                                         it.comments = {
                                             count: comments
                                         };
 
-                                        timeline.push(it);
                                      });
                                 });
+                                
+                                timeline.push(it);
                             });
 
                             res.status(200).send(timeline);
