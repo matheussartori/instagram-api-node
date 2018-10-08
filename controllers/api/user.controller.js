@@ -17,13 +17,16 @@ module.exports = app => {
             } else {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
+                        let timeline = [];
                         if(media) {
 
                             media.forEach(function(single) {
-                                media.teste = 'test';
+                                let it = single;
+                                it.teste = 'test'
+                                timeline.push(single);
                             });
 
-                            res.status(200).send(media);
+                            res.status(200).send(timeline);
                         }
                     });
                 } else {
