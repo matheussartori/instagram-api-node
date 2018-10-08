@@ -19,8 +19,8 @@ module.exports = app => {
                     Media.find({ user: user._id }, (err, media) => {
                         if(media) {
 
-                            media.forEach(function() {
-                                console.log('a');
+                            media.forEach(function(single) {
+                                console.log(single);
                             });
 
                             res.status(200).send(media);
