@@ -23,12 +23,12 @@ module.exports = app => {
                             media.forEach(function(single) {
                                 let it = single.toObject();
 
-                                Like.countDocuments({ media: media._id }, (err, likes) => {
+                                Like.countDocuments({ media: it._id }, (err, likes) => {
                                     it.likes = {
                                         count: likes
                                     };
 
-                                     Comment.countDocuments({ media: media._id }, (err, comments) => {
+                                     Comment.countDocuments({ media: it._id }, (err, comments) => {
                                         it.comments = {
                                             count: comments
                                         };
