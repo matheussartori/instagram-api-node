@@ -18,8 +18,8 @@ module.exports = app => {
                 if(user) {
                     Media.find({ user: user._id }, (err, media) => {
                         if(media) {
-                            
-                            timeline.forEach(function() {
+
+                            media.forEach(function() {
                                 console.log('a');
                             });
 
